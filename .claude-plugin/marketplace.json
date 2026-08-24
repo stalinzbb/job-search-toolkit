@@ -1,0 +1,11 @@
+{
+  "name": "job-application-toolkit",
+  "owner": { "name": "Stalin Thomas", "url": "https://github.com/stalinzbb" },
+  "plugins": [
+    {
+      "name": "job-application-toolkit",
+      "source": "./",
+      "description": "Three skills for job applications: mine a JD for keywords, rewrite your LinkedIn, rewrite your resume."
+    }
+  ]
+}

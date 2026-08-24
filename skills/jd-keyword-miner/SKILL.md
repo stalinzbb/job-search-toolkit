@@ -9,9 +9,21 @@ Turn job posts into a keyword report the user can write against. Multiple posts 
 
 ## Output location
 
-All files go to `~/projects/ja-toolkit-assets/<company>-<role-slug>/`, created on first run.
-- `keyword-report-<YYYY-MM-DD>.md` — the report, dated by run (second run same day: `-2` suffix). Never overwrite an existing report — every run adds a new one, so the folder becomes a history.
-- `inputs/jd-1.md`, `inputs/jd-2.md`, … — raw fetched/pasted job text. Numbering continues across runs (if `jd-4.md` exists, the next post is `jd-5.md`).
+Everything for one target role lives in one folder:
+
+```
+$JOB_APPS_DIR/<company>-<role-slug>/
+├── inputs/                        # raw job posts, the resume you provided
+├── keyword-report-2026-08-24.md   # newest report wins
+├── linkedin-rewrite.md
+└── resume-rewrite.md
+```
+
+`JOB_APPS_DIR` is the environment variable if the user has set one, otherwise `~/job-applications`. Resolve it once with Bash — `echo "${JOB_APPS_DIR:-$HOME/job-applications}"` — and never hardcode a path. Create the folder on first run and tell the user where it went.
+
+The newest report is whichever `keyword-report-*.md` sorts last: `ls "$DIR"/keyword-report-*.md | tail -1`.
+
+Reports are dated by run (`keyword-report-<YYYY-MM-DD>.md`; a second run the same day gets a `-2` suffix). Never overwrite an existing report — every run adds one, so the folder becomes a history you can diff against. Raw job text goes to `inputs/jd-<n>.md`, numbered continuing across runs (if `jd-4.md` exists, the next post is `jd-5.md`).
 
 Pick the slug from the dominant company+role (e.g. `stripe-senior-product-designer`). For a multi-company cluster with no single employer, use `<role-slug>` alone (e.g. `senior-product-designer`) and say so. If a folder for this role already exists, use it — that's a re-run, not a new cluster.
 

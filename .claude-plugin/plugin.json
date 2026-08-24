@@ -1,0 +1,9 @@
+{
+  "name": "job-application-toolkit",
+  "description": "Mine job posts for what they actually want, then rewrite your LinkedIn and resume to match — without inventing anything.",
+  "version": "0.1.0",
+  "author": { "name": "Stalin Thomas" },
+  "homepage": "https://github.com/stalinzbb/job-application-toolkit",
+  "license": "MIT",
+  "keywords": ["resume", "linkedin", "job-search", "ats", "keywords"]
+}

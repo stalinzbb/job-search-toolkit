@@ -14,12 +14,19 @@ Each is self-contained. They chain by invoking each other and by reading each ot
 
 ## Install
 
-Symlink each skill into `~/.claude/skills/` — edits to this repo are then live immediately:
+As a plugin (one command, updates with `/plugin update`):
+
+```
+/plugin marketplace add stalinzbb/job-application-toolkit
+```
+
+Then `/plugin install job-application-toolkit@job-application-toolkit`.
+
+Or symlink the skills, if you'd rather hack on them locally:
 
 ```bash
-ln -s ~/projects/job-application-toolkit/skills/jd-keyword-miner ~/.claude/skills/jd-keyword-miner
-ln -s ~/projects/job-application-toolkit/skills/rewrite-linkedin-profile ~/.claude/skills/rewrite-linkedin-profile
-ln -s ~/projects/job-application-toolkit/skills/rewrite-resume ~/.claude/skills/rewrite-resume
+git clone https://github.com/stalinzbb/job-application-toolkit
+ln -s "$PWD"/job-application-toolkit/skills/* ~/.claude/skills/
 ```
 
 ## Usage
@@ -38,17 +45,17 @@ Natural phrasing works too: "analyze these job postings for keywords", "tailor m
 
 ## Output
 
-Everything lands in `~/projects/ja-toolkit-assets/<company>-<role-slug>/`:
+Everything for one role lands in one folder — `$JOB_APPS_DIR` if you've set it, otherwise `~/job-applications/`:
 
 ```
-stripe-senior-product-designer/
-├── inputs/              # raw fetched job posts, your provided resume
-├── keyword-report.md
+~/job-applications/stripe-senior-product-designer/
+├── inputs/                        # raw fetched job posts, your provided resume
+├── keyword-report-2026-08-24.md   # dated per run; the newest one wins
 ├── linkedin-rewrite.md
 └── resume-rewrite.md
 ```
 
-One folder per role you go after. The keyword report is shared by both rewrite skills.
+Reports are never overwritten — each run adds a dated one, so the folder is a history. Re-running the miner on new posts opens the new report with a **Since last report** diff. Point the whole thing somewhere else (iCloud, Dropbox) by exporting `JOB_APPS_DIR` in your shell profile.
 
 ## How job posts get fetched
 
@@ -60,4 +67,8 @@ The rewrite skills interview you before writing anything, and won't invent exper
 
 ## Not included yet
 
-DOCX/PDF resume export (the built-in `docx` and `pdf` skills can do it on request), and plugin packaging — add `.claude-plugin/plugin.json` if you want to distribute this as a plugin.
+DOCX/PDF resume export — ask for it and the built-in `docx` and `pdf` skills will handle the rewrite output.
+
+## License
+
+MIT.
