@@ -14,14 +14,14 @@ Provided resumes and pasted JDs go in that folder's `inputs/`.
 
 ## Step 1 — Get the keyword report
 
-Check `~/projects/ja-toolkit-assets/` for an existing `<slug>/keyword-report.md`. If one matches the target role, read it and confirm the target with the user.
+Check `~/projects/ja-toolkit-assets/` for an existing `<slug>/keyword-report-*.md` — reports are dated; use the most recent. If one matches the target role, read it and confirm the target with the user.
 
 No report? Ask for the job link(s) and mine them first:
 - Fetch chain (never ask for LinkedIn credentials): logged-in Chrome → WebFetch → ask the user to paste the JD.
   For Chrome, load tools with `ToolSearch` query `select:mcp__claude-in-chrome__tabs_context_mcp,mcp__claude-in-chrome__navigate,mcp__claude-in-chrome__get_page_text,mcp__claude-in-chrome__computer`.
 - Extract per job: title, seniority, years, hard skills, tools, soft skills, certs, exact recurring phrases, responsibilities, must-have vs nice-to-have.
 - Aggregate into a keyword frequency table (keyword | count | category | where to showcase), top 10 keywords, and phrases to mirror verbatim.
-- Save as `keyword-report.md` in the role folder so the LinkedIn skill can reuse it.
+- Save as `keyword-report-<YYYY-MM-DD>.md` in the role folder so the LinkedIn skill can reuse it.
 
 ## Step 2 — Ingest the current resume
 

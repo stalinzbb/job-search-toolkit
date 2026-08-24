@@ -10,10 +10,12 @@ Turn job posts into a keyword report the user can write against. Multiple posts 
 ## Output location
 
 All files go to `~/projects/ja-toolkit-assets/<company>-<role-slug>/`, created on first run.
-- `keyword-report.md` — the report
-- `inputs/jd-1.md`, `inputs/jd-2.md`, … — raw fetched/pasted job text
+- `keyword-report-<YYYY-MM-DD>.md` — the report, dated by run (second run same day: `-2` suffix). Never overwrite an existing report — every run adds a new one, so the folder becomes a history.
+- `inputs/jd-1.md`, `inputs/jd-2.md`, … — raw fetched/pasted job text. Numbering continues across runs (if `jd-4.md` exists, the next post is `jd-5.md`).
 
-Pick the slug from the dominant company+role (e.g. `stripe-senior-product-designer`). For a multi-company cluster with no single employer, use `<role-slug>` alone (e.g. `senior-product-designer`) and say so.
+Pick the slug from the dominant company+role (e.g. `stripe-senior-product-designer`). For a multi-company cluster with no single employer, use `<role-slug>` alone (e.g. `senior-product-designer`) and say so. If a folder for this role already exists, use it — that's a re-run, not a new cluster.
+
+**Re-runs:** when the folder already holds reports, read the most recent one first. New posts are mined into the same frequency counts as the old inputs (total posts = old + new), and the new report opens with a **Since last report** section: posts added, keywords that entered or left the top 10, gates or comp ranges that changed, and action-plan items that are new or now obsolete. A rerun with no new posts but a changed goal (different target company, updated profile) still gets a fresh dated report saying what changed and why.
 
 ## Step 1 — Collect input
 
@@ -34,7 +36,9 @@ Save each raw description to `inputs/jd-<n>.md` with the URL, company, and title
 ## Step 3 — Per-job extraction
 
 For each job, pull out:
-- Title, company, seniority level, years of experience required
+- Title, company, team name, seniority level, years of experience required
+- Comp range, location/remote policy, visa notes if stated
+- Hard gates: anything phrased as "required" / "must have" — years, degree, portfolio, domain
 - Hard skills (the doable things)
 - Tools / technologies / platforms named
 - Soft skills and traits
@@ -42,10 +46,11 @@ For each job, pull out:
 - Exact recurring phrases worth mirroring verbatim
 - Core responsibilities
 - Must-have vs nice-to-have qualifications (JDs usually split these — keep the split)
+- Culture signals: named influences, values language, anything that belongs in a cover letter rather than a resume
 
 ## Step 4 — Cross-job aggregation
 
-This is the report. Five sections:
+This is the report. Two halves: **diagnosis** (sections 1–5: what the roles want) and **action** (sections 6–9: exactly what to do about it). Never ship the diagnosis without the action half.
 
 **Keyword frequency table**
 
@@ -63,9 +68,23 @@ Category is one of: skill, tool, phrase, trait. "Where to showcase" names the Li
 
 **Phrases to mirror verbatim** — exact JD wording worth echoing for ATS keyword matching. Quote it, and note which section it fits.
 
+**Screening gates** — one table, per post: years required, degree, portfolio/work-sample requirement, location/remote, comp range, anything else phrased as a hard "must". These are pass/fail before keywords matter; flag any gate the posts disagree on.
+
+**Action plan** — a numbered checklist, ranked by impact, of the exact edits to make today. Each item is a concrete instruction, not advice: "Put `8+ years of product design experience` as the first line of your About", "Add these five skills verbatim, in this order: …", "Reorder your experience so the design-system role is first." 6–10 items. This section is why the report exists.
+
+**Ready-to-paste starters** — drafts the user can adapt, with `[bracketed slots]` for facts only they can supply:
+- One headline draft (LinkedIn, 220 chars) built from the 4/4 keywords
+- An About/summary opening line
+- 2–3 experience-bullet templates in the shape *action verb + JD keyword + `[project]` + `[metric]`*
+Never fill a slot with an invented specific — the brackets are the honesty boundary.
+
+**Proof-point worksheet** — for each top-10 keyword, one row: the keyword, what evidence the user needs to claim it credibly (a named project, a number, a story), and the shape a strong answer takes. This is the prep list for both the rewrite skills and interviews.
+
+**Per-company angle** — one short paragraph per post: what this specific employer weights differently, which keyword to lead with for them, and any culture signal worth using in a cover letter or outreach note. End each with the single strongest tailoring move for that company.
+
 ## Step 5 — Save and hand off
 
-Write `keyword-report.md`. In chat, print only the top-10 list and the ideal candidate paragraph — not the whole report. Then offer:
+Write the dated report file. In chat, print the top-10 list, the ideal candidate paragraph, the full action plan, and — on a re-run — the Since-last-report section. Not the whole report. Then offer:
 
 "Report saved to `<path>`. Next: run **rewrite-linkedin-profile** or **rewrite-resume** against it?"
 

@@ -13,14 +13,14 @@ Rewrite the profile against a specific target role. Nothing gets written until t
 
 ## Step 1 — Get the keyword report
 
-Check `~/projects/ja-toolkit-assets/` for an existing `<slug>/keyword-report.md`. If one matches the target role, read it and confirm with the user: "Using the report for `<slug>` — right target?"
+Check `~/projects/ja-toolkit-assets/` for an existing `<slug>/keyword-report-*.md` — reports are dated; use the most recent. If one matches the target role, read it and confirm with the user: "Using the report for `<slug>` — right target?"
 
 No report? Ask for the job link(s) and mine them first:
 - Fetch chain (never ask for LinkedIn credentials): logged-in Chrome → WebFetch → ask the user to paste the JD.
   For Chrome, load tools with `ToolSearch` query `select:mcp__claude-in-chrome__tabs_context_mcp,mcp__claude-in-chrome__navigate,mcp__claude-in-chrome__get_page_text,mcp__claude-in-chrome__computer`.
 - Extract per job: title, seniority, years, hard skills, tools, soft skills, certs, exact recurring phrases, responsibilities, must-have vs nice-to-have.
 - Aggregate across jobs into a keyword frequency table (keyword | count | category | where to showcase), top 10 keywords, and the exact phrases to mirror.
-- Save it as `keyword-report.md` in the role folder so the resume skill can reuse it.
+- Save it as `keyword-report-<YYYY-MM-DD>.md` in the role folder so the resume skill can reuse it.
 
 ## Step 2 — Get the current profile
 
