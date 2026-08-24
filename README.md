@@ -51,17 +51,17 @@ Natural phrasing works too: "analyze these job postings for keywords", "tailor m
 
 ## Output
 
-Everything for one role lands in one folder — `$JOB_APPS_DIR` if you've set it, otherwise `~/job-applications/`:
+Everything for one role lands in one folder — `$JOB_SEARCH_DIR` if you've set it, otherwise `~/job-search/`:
 
 ```
-~/job-applications/stripe-senior-product-designer/
+~/job-search/stripe-senior-product-designer/
 ├── inputs/                        # raw fetched job posts, your provided resume
 ├── keyword-report-2026-08-24.md   # dated per run; the newest one wins
 ├── linkedin-rewrite-2026-08-24.md
 └── resume-rewrite-2026-08-24.md
 ```
 
-Reports are never overwritten — each run adds a dated one, so the folder is a history. Re-running the miner on new posts opens the new report with a **Since last report** diff. Point the whole thing somewhere else (iCloud, Dropbox) by exporting `JOB_APPS_DIR` in your shell profile.
+Reports are never overwritten — each run adds a dated one, so the folder is a history. Re-running the miner on new posts opens the new report with a **Since last report** diff. Point the whole thing somewhere else (iCloud, Dropbox) by exporting `JOB_SEARCH_DIR` in your shell profile.
 
 ## How job posts get fetched
 

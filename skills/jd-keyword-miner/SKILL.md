@@ -12,14 +12,14 @@ Turn job posts into a keyword report the user can write against. Multiple posts 
 Everything for one target role lives in one folder:
 
 ```
-$JOB_APPS_DIR/<company>-<role-slug>/
+$JOB_SEARCH_DIR/<company>-<role-slug>/
 ├── inputs/                        # raw job posts, the resume you provided
 ├── keyword-report-2026-08-24.md   # every output is dated; newest wins
 ├── linkedin-rewrite-2026-08-24.md
 └── resume-rewrite-2026-08-24.md
 ```
 
-`JOB_APPS_DIR` is the environment variable if the user has set one, otherwise `~/job-applications`. Resolve it once with Bash — `echo "${JOB_APPS_DIR:-$HOME/job-applications}"` — and never hardcode a path. Create the folder on first run and tell the user where it went.
+`JOB_SEARCH_DIR` is the environment variable if the user has set one, otherwise `~/job-search`. Resolve it once with Bash — `echo "${JOB_SEARCH_DIR:-$HOME/job-search}"` — and never hardcode a path. Create the folder on first run and tell the user where it went.
 
 The newest report is whichever `keyword-report-*.md` sorts last: `ls "$DIR"/keyword-report-*.md | tail -1`.
 
