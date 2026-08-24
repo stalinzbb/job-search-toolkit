@@ -14,7 +14,15 @@ Each is self-contained. They chain by invoking each other and by reading each ot
 
 ## Install
 
-As a plugin (one command, updates with `/plugin update`):
+One command, no plugin system involved:
+
+```bash
+npx github:stalinzbb/job-application-toolkit
+```
+
+Copies the three skills into `~/.claude/skills/` (or `$CLAUDE_SKILLS_DIR`). Existing skills are skipped unless you pass `--force`. Restart Claude Code afterwards.
+
+Or as a plugin, if you want `/plugin update` to keep it current:
 
 ```
 /plugin marketplace add stalinzbb/job-application-toolkit

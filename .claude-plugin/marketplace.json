@@ -1,6 +1,10 @@
 {
   "name": "job-application-toolkit",
-  "owner": { "name": "Stalin Thomas", "url": "https://github.com/stalinzbb" },
+  "description": "Skills for job applications: mine a job post for keywords, then rewrite your LinkedIn and resume to match.",
+  "owner": {
+    "name": "Stalin Thomas",
+    "url": "https://github.com/stalinzbb"
+  },
   "plugins": [
     {
       "name": "job-application-toolkit",
