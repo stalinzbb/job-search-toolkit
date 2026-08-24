@@ -1,4 +1,4 @@
-# job-application-toolkit
+# job-search-toolkit
 
 Three Claude Code skills for applying to jobs: mine job posts for what they actually want, then rewrite your LinkedIn profile and resume to match — without inventing anything.
 
@@ -17,7 +17,7 @@ Each is self-contained. They chain by invoking each other and by reading each ot
 One command, no plugin system involved:
 
 ```bash
-npx github:stalinzbb/job-application-toolkit
+npx github:stalinzbb/job-search-toolkit
 ```
 
 Copies the three skills into `~/.claude/skills/` (or `$CLAUDE_SKILLS_DIR`). Existing skills are skipped unless you pass `--force`. Restart Claude Code afterwards.
@@ -25,16 +25,16 @@ Copies the three skills into `~/.claude/skills/` (or `$CLAUDE_SKILLS_DIR`). Exis
 Or as a plugin, if you want `/plugin update` to keep it current:
 
 ```
-/plugin marketplace add stalinzbb/job-application-toolkit
+/plugin marketplace add stalinzbb/job-search-toolkit
 ```
 
-Then `/plugin install job-application-toolkit@job-application-toolkit`.
+Then `/plugin install job-search-toolkit@job-search-toolkit`.
 
 Or symlink the skills, if you'd rather hack on them locally:
 
 ```bash
-git clone https://github.com/stalinzbb/job-application-toolkit
-ln -s "$PWD"/job-application-toolkit/skills/* ~/.claude/skills/
+git clone https://github.com/stalinzbb/job-search-toolkit
+ln -s "$PWD"/job-search-toolkit/skills/* ~/.claude/skills/
 ```
 
 ## Usage

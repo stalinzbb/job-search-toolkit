@@ -1,5 +1,5 @@
 {
-  "name": "job-application-toolkit",
+  "name": "job-search-toolkit",
   "description": "Skills for job applications: mine a job post for keywords, then rewrite your LinkedIn and resume to match.",
   "owner": {
     "name": "Stalin Thomas",
@@ -7,7 +7,7 @@
   },
   "plugins": [
     {
-      "name": "job-application-toolkit",
+      "name": "job-search-toolkit",
       "source": "./",
       "description": "Three skills for job applications: mine a JD for keywords, rewrite your LinkedIn, rewrite your resume."
     }

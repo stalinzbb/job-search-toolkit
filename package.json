@@ -1,9 +1,9 @@
 {
-  "name": "job-application-toolkit",
+  "name": "job-search-toolkit",
   "version": "0.1.0",
   "description": "Claude Code skills for job applications: mine a job post for keywords, then rewrite your LinkedIn and resume to match.",
   "license": "MIT",
-  "bin": { "job-application-toolkit": "install.mjs" },
+  "bin": { "job-search-toolkit": "install.mjs" },
   "files": ["install.mjs", "skills"],
-  "repository": "github:stalinzbb/job-application-toolkit"
+  "repository": "github:stalinzbb/job-search-toolkit"
 }
