@@ -14,16 +14,16 @@ Everything for one target role lives in one folder:
 ```
 $JOB_APPS_DIR/<company>-<role-slug>/
 ├── inputs/                        # raw job posts, the resume you provided
-├── keyword-report-2026-08-24.md   # newest report wins
-├── linkedin-rewrite.md
-└── resume-rewrite.md
+├── keyword-report-2026-08-24.md   # every output is dated; newest wins
+├── linkedin-rewrite-2026-08-24.md
+└── resume-rewrite-2026-08-24.md
 ```
 
 `JOB_APPS_DIR` is the environment variable if the user has set one, otherwise `~/job-applications`. Resolve it once with Bash — `echo "${JOB_APPS_DIR:-$HOME/job-applications}"` — and never hardcode a path. Create the folder on first run and tell the user where it went.
 
 The newest report is whichever `keyword-report-*.md` sorts last: `ls "$DIR"/keyword-report-*.md | tail -1`.
 
-This skill writes `resume-rewrite.md`.
+This skill writes `resume-rewrite-<YYYY-MM-DD>.md`. Dated by run, never overwritten — a second run the same day gets a `-2` suffix, so the folder keeps every version you've sent.
 Provided resumes and pasted JDs go in that folder's `inputs/`.
 
 ## Step 1 — Get the keyword report
@@ -93,7 +93,7 @@ Beyond wording, give structural recommendations:
 
 ## Step 6 — Save and report
 
-Write `resume-rewrite.md` containing:
+Write the dated `resume-rewrite-<YYYY-MM-DD>.md` containing:
 1. The clean final draft, ready to copy out
 2. A change log — what moved, what was cut, what was added, and why
 
