@@ -14,21 +14,19 @@ Each is self-contained. They chain by invoking each other and by reading each ot
 
 ## Install
 
-One command, no plugin system involved:
+```
+/plugin marketplace add stalinzbb/job-search-toolkit
+```
+
+Then `/plugin install job-search-toolkit@job-search-toolkit`. This is the path that gets updates — `/plugin update` keeps you current.
+
+No plugin system? Copy the skills straight into `~/.claude/skills/` (or `$CLAUDE_SKILLS_DIR`):
 
 ```bash
 npx github:stalinzbb/job-search-toolkit
 ```
 
-Copies the three skills into `~/.claude/skills/` (or `$CLAUDE_SKILLS_DIR`). Existing skills are skipped unless you pass `--force`. Restart Claude Code afterwards.
-
-Or as a plugin, if you want `/plugin update` to keep it current:
-
-```
-/plugin marketplace add stalinzbb/job-search-toolkit
-```
-
-Then `/plugin install job-search-toolkit@job-search-toolkit`.
+Existing skills are skipped unless you pass `--force`. Restart Claude Code afterwards.
 
 Or symlink the skills, if you'd rather hack on them locally:
 
